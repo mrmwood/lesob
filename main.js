@@ -21,7 +21,9 @@ $(document).ready(function(){
   function myFunction(response) {
     var arr = JSON.parse(response);
     var s;
-    var out = "<table class='ui very compact small celled table'>";
+    var out = "<table id='student_snippet_table' class='ui very compact small celled table'>";
+
+///// STUDENTS ///////
 
     for (s = 1; s < (arr[0].student_number_of_snippets + 1); s++) {
       ///ORIGINAL//// out += "<tr><td class='selectable'><a>" +
@@ -32,11 +34,11 @@ $(document).ready(function(){
     out += "</table>";
     document.getElementById("s").innerHTML = out;
 
-
+///// TEACHERS ///////
 
     var t = arr[0].student_number_of_snippets + 1 //this is 15 + 1
     //which is 16 which is the index of teacher_number_of_snippets
-    var out2 = "<table class='ui very compact small celled table'>";
+    var out2 = "<table id='teacher_snippet_table' class='ui very compact small celled table'>";
     //need to go to 29
     for (i = t + 1; i < (arr[0].student_number_of_snippets + arr[t].teacher_number_of_snippets + 2); i++) {
     //for (i = 17; i < (arr[16].teacher_number_of_snippets + 1); i++) {
@@ -104,4 +106,56 @@ $(document).ready(function(){
   });
 
 
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////  STUDENT TABLE Array
+///////////////////////////////////////////////////////////////////////////////
+//Thoughts - put all snippets in the same table with an extra field T (Teacher), S (Student), A (Assessment)
+//That way all the below would have a different ID
+
+// Array to stall all IDs
+var student_ids = [];
+//#board is the id of the table with the <td>'s in i.e. the <td>'s you want to get ID's of
+$(document).on("click", "#student_snippet_table td", function(e) {
+		// iddata stores the value of the id of the <td> clicked
+     var iddata = $(this).attr('id');
+     //
+     var idx = $.inArray(iddata, student_ids);
+      if (idx == -1) {
+        student_ids.push(iddata);
+      } else {
+        student_ids.splice(idx, 1);
+      }
+     /* student_ids.push( iddata ); */
+     console.log(student_ids.length); // < read the length of the amended array here
+     console.log(student_ids); // just so you can see the content
 });
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////  TEACHER TABLE Array
+///////////////////////////////////////////////////////////////////////////////
+//Thoughts - put all snippets in the same table with an extra field T (Teacher), S (Student), A (Assessment)
+//That way all the below would have a different ID
+
+// Array to stall all IDs
+var teacher_ids = [];
+//#board is the id of the table with the <td>'s in i.e. the <td>'s you want to get ID's of
+$(document).on("click", "#teacher_snippet_table td", function(e) {
+		// iddata stores the value of the id of the <td> clicked
+     var iddata = $(this).attr('id');
+     //
+     var idx = $.inArray(iddata, teacher_ids);
+      if (idx == -1) {
+        teacher_ids.push(iddata);
+      } else {
+        teacher_ids.splice(idx, 1);
+      }
+     /* teacher_ids.push( iddata ); */
+     console.log(teacher_ids.length); // < read the length of the amended array here
+     console.log(teacher_ids); // just so you can see the content
+});
+});
+////////////////////////////////////////////////////////////////////////////////

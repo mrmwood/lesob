@@ -24,7 +24,8 @@ $(document).ready(function(){
     var out = "<table class='ui very compact small celled table'>";
 
     for (s = 1; s < (arr[0].student_number_of_snippets + 1); s++) {
-      out += "<tr><td class='selectable'><a>" +
+      ///ORIGINAL//// out += "<tr><td class='selectable'><a>" +
+      out += "<tr><td id='" + arr[s].ID_student_s + "' class='selectable'><a>" +
         arr[s].snippet +
         "</a></td></tr>";
     }
@@ -39,7 +40,9 @@ $(document).ready(function(){
     //need to go to 29
     for (i = t + 1; i < (arr[0].student_number_of_snippets + arr[t].teacher_number_of_snippets + 2); i++) {
     //for (i = 17; i < (arr[16].teacher_number_of_snippets + 1); i++) {
-      out2 += "<tr><td class='selectable'><a>" +
+      ////out2 += "<tr><td class='selectable'><a>" +
+      out2 += "<tr><td id='" + arr[i].ID_teacher_s + "' class='selectable'><a>" +
+
         arr[i].snippet +
         "</a></td></tr>";
     }

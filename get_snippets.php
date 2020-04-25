@@ -20,7 +20,7 @@ $outp .="]";
 
 
 
-$sql2 = "SELECT snippet FROM teacher_s ORDER BY snippet";
+$sql2 = "SELECT * FROM teacher_s ORDER BY snippet";
 $result2 = $conn->query($sql2);
 $rowcount2=mysqli_num_rows($result2);
 //echo('Number of teacher snippets:  '. $rowcount2 . "     ");
@@ -28,8 +28,11 @@ $rowcount2=mysqli_num_rows($result2);
 $outp2 = '[{"teacher_number_of_snippets":' . $rowcount2 . '}';
 //$outp2 = "[";
 while($rs2 = $result2->fetch_assoc()) {
+    // if ($outp2 != "[") {$outp2 .= ",";}
+    //     $outp2 .= '{"snippet":"'. $rs2["snippet"]     . '"}';
     if ($outp2 != "[") {$outp2 .= ",";}
-        $outp2 .= '{"snippet":"'. $rs2["snippet"]     . '"}';
+        $outp2 .= '{"ID_teacher_s":'. $rs2[ID_teacher_s]     . ",";
+        $outp2 .= '"snippet":"'. $rs2["snippet"]     . '"}';
 }
 $outp2 .="]";
 

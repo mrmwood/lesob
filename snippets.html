@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- External CSS and JavaScript/JQuery-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Internal CSS and JavaScript/JQuery-->
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+  <h2 class="ui center aligned icon header">
+    <i class="circular users icon"></i>
+    Lesson Observation
+  </h2>
+  <div class="ui container">
+    <div class="ui three column grid">
+      <div class="column">
+        <div>
+          <div class="ui attached tabular menu">
+            <a id="student" class="active item">Students</a>
+            <a id="teacher" class="item">Teacher</a>
+            <a id="assessment" class="item">Assessment</a>
+          </div>
+          <!-- put this in a div in you want a loading bar: <div class="ui bottom attached loading tab segment"></div> -->
+          <div id="s" class="ui bottom attached segment active tab"></div>
+          <div id="t" class="ui bottom attached segment tab hide_me"></div>
+          <div id="a" class="ui bottom attached segment tab hide_me"></div>
+        </div>
+      </div>
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
+  </div>
+
+</body>
+</html>

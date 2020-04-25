@@ -1,0 +1,13 @@
+/* Style the buttons */
+.selectable {
+  cursor: pointer;
+}
+
+.hide_me {
+  position: absolute;
+  left: -999px;
+}
+
+.show_me {
+  visibility: initial;
+}
